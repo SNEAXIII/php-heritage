@@ -1,0 +1,16 @@
+{
+    "name": "bassignota/php-heritage",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Alexis Bassignot",
+            "email": "misterbalise2@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {}
+}
