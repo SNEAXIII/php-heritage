@@ -4,9 +4,9 @@ namespace App;
 
 class Employe
 {
-    private string $prenom;
-    private string $nom;
-    private int $age;
+    protected string $prenom;
+    protected string $nom;
+    protected int $age;
 
     /**
      * @param string $prenom
@@ -68,6 +68,6 @@ class Employe
         $this->age = $age;
     }
     public function presenter():string {
-        return "Je m'appelle $this->prenom $this->nom et j'ai $this->age ans";
+        return "Je m'appelle $this->prenom $this->nom et j'ai $this->age ans.";
     }
 }
