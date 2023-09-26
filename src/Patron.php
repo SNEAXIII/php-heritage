@@ -21,7 +21,7 @@ class Patron extends Employe
     }
     public function presenter(): string
     {
-        return "Bonjour, je me nomme {$this->nom} {$this->prenom} et je suis le BOSS.";
+        return "Bonjour, je me nomme {$this->prenom} {$this->nom} et je suis le BOSS.";
     }
 
     public function seDeplace(): string
