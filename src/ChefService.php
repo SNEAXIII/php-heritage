@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 
 //La classe Patron = Employe + X
@@ -18,6 +19,7 @@ class ChefService extends Employe
         parent::__construct($prenom, $nom, $age,);
         $this->service = $service;
     }
+
     public function presenter(): string
     {
         return "Bonjour, je me suis {$this->prenom} {$this->nom} et je m'occuppe du service {$this->service}.";

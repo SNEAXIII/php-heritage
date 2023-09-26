@@ -67,7 +67,9 @@ class Employe
     {
         $this->age = $age;
     }
-    public function presenter():string {
+
+    public function presenter(): string
+    {
         return "Je m'appelle $this->prenom $this->nom et j'ai $this->age ans.";
     }
 }

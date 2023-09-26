@@ -19,6 +19,7 @@ class Patron extends Employe
         parent::__construct($prenom, $nom, $age,);
         $this->voiture = $voiture;
     }
+
     public function presenter(): string
     {
         return "Bonjour, je me nomme {$this->prenom} {$this->nom} et je suis le BOSS.";
