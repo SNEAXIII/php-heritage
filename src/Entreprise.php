@@ -8,7 +8,7 @@ class Entreprise
     protected string $nom;
     protected string $ville;
     /**
-     * @var Employe[]
+     * @var Personnel[]
      */
     protected array $employes;
 
@@ -80,11 +80,24 @@ class Entreprise
         }
         return null;
     }
+
+    public function findAllSalaireBySalarie(): array
+    {
+        $result = [];
+        foreach ($this->employes as $employe) {
+            $result[] = [
+                $employe->getNomClasse() => "{$employe->getPrenom()} {$employe->getNom()}",
+                "salaire" => $employe->getSalaire()
+            ];
+        }
+        return $result;
+    }
+
     public function findAllByStatus(): array
     {
         $result = [];
         foreach ($this->employes as $employe) {
-            $nomStatus = (new \ReflectionClass($employe))->getShortName();
+            $nomStatus = $employe->getNomClasse();
             if (!isset($result[$nomStatus])) {
                 $result[$nomStatus] = [];
             }
@@ -92,10 +105,21 @@ class Entreprise
         }
         return $result;
     }
-    public function openCsv($path = "./csv/data.csv", $mode = "r") : string {
+
+    public function findMasseSalariale():int {
+        $result = 0;
+        foreach ($this->employes as $employe) {
+            $result = $result + $employe->getSalaire();
+        }
+        return $result;
+    }
+
+    public function openCsv($path = "./csv/data.csv", $mode = "r"): string
+    {
         return fopen($path, $mode);
     }
-    public function addEmploye(Employe $employe): void
+
+    public function addEmploye(Personnel $employe): void
     {
         // On cherche le patron. Peut etre null
         $patron = $this->findPatron();
@@ -117,7 +141,7 @@ class Entreprise
     }
 
     /**
-     * @return string
+     * @return void
      */
     public function presenterEmploye(): void
     {

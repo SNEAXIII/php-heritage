@@ -12,5 +12,8 @@
             "App\\": "src/"
         }
     },
-    "require": {}
+    "require-dev": {
+        "league/csv": "^9.11",
+        "symfony/var-dumper": "^6.3"
+    }
 }

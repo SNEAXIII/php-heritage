@@ -4,9 +4,10 @@ namespace App;
 
 //La classe Patron = Employe + X
 //La classe Employe est une generalisation de la classe Patron
-class Patron extends Employe
+class Patron extends Personnel
 {
     protected string $voiture;
+    protected int $bonus;
 
     /**
      * @param string $prenom
@@ -18,6 +19,7 @@ class Patron extends Employe
     {
         parent::__construct($prenom, $nom, $age,);
         $this->voiture = $voiture;
+        $this->bonus = 2000;
     }
 
     public function presenter(): string
@@ -28,5 +30,10 @@ class Patron extends Employe
     public function seDeplace(): string
     {
         return "Je me déplace en $this->voiture.";
+    }
+
+    public function getSalaire(): float
+    {
+        return $this->salaireBase + $this->bonus;
     }
 }

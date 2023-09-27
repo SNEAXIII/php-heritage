@@ -4,7 +4,7 @@ namespace App;
 
 //La classe Patron = Employe + X
 //La classe Employe est une generalisation de la classe Patron
-class ChefService extends Employe
+class ChefService extends Personnel
 {
     protected string $service;
 
@@ -23,5 +23,10 @@ class ChefService extends Employe
     public function presenter(): string
     {
         return "Bonjour, je me suis {$this->prenom} {$this->nom} et je m'occuppe du service {$this->service}.";
+    }
+
+    public function getSalaire(): float
+    {
+        return $this->salaireBase*1.1;
     }
 }
